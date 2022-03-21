@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Razeware LLC
+// Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
 import 'dart:math';
@@ -68,8 +68,8 @@ void main() {
   /// String equality
 
   const guess = 'dog';
-  const dogEqualsCat = guess == 'cat';
-  print('dogEqualsCat: $dogEqualsCat');
+  const guessEqualsCat = guess == 'cat';
+  print('guessEqualsCat: $guessEqualsCat');
 
   /// The if statement
 
@@ -224,15 +224,15 @@ void main() {
 
   /// Comparing while and do-while loops
 
-  sum = 11;
+  sum = (1 + 3 - 2 * 4 + 8);
   while (sum < 10) {
-    sum += 4;
+    sum += (1 + 3 - 2 * 4 + 8);
   }
   print('while loop sum: $sum');
 
-  sum = 11;
+  sum = 0;
   do {
-    sum += 4;
+    sum += (1 + 3 - 2 * 4 + 8);
   } while (sum < 10);
   print('do-while loop sum: $sum');
 
