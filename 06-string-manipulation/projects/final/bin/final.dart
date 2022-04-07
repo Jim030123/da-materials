@@ -7,7 +7,7 @@ void main() {
   print(lowercase);
 
   userInput = ' 221B Baker St.   ';
-  final trimmed = userInput.trimLeft();
+  final trimmed = userInput.trim();
   print("'$trimmed'");
 
   var time = Duration(hours: 1, minutes: 32, seconds: 57);
@@ -19,6 +19,8 @@ void main() {
 
   padding();
   splittingAndJoining();
+  findAndReplace();
+  stringBuffer();
 }
 
 void padding() {
@@ -37,4 +39,23 @@ void splittingAndJoining() {
 
   final joined = fields.join('-');
   print(joined);
+}
+
+void findAndReplace() {
+  const phrase = 'live and learn';
+  final withUnderscores = phrase.replaceAll(' ', '_');
+  print(withUnderscores);
+}
+
+void stringBuffer() {
+  for (int i = 2; i <= 1024; i *= 2) {
+    print(i);
+  }
+
+  final buffer = StringBuffer();
+  for (int i = 2; i <= 1024; i *= 2) {
+    buffer.write(i);
+    buffer.write(' ');
+  }
+  print(buffer);
 }
