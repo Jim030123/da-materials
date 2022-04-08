@@ -21,6 +21,7 @@ void main() {
   splittingAndJoining();
   findAndReplace();
   stringBuffer();
+  stringValidation();
 }
 
 void padding() {
@@ -58,4 +59,14 @@ void stringBuffer() {
     buffer.write(' ');
   }
   print(buffer);
+}
+
+void stringValidation() {
+  const text = 'I love Dart';
+  print(text.startsWith('I'));
+  print(text.endsWith('Dart'));
+  print(text.contains('love'));
+  print(text.contains('Flutter'));
+
+  const password = 'password123';
 }
