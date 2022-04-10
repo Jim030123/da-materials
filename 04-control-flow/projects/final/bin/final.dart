@@ -16,8 +16,8 @@ void main() {
   /// Boolean operators
 
   const doesOneEqualTwo = (1 == 2);
-  // const doesOneEqualTwo = 1 == 2;
   print('doesOneEqualTwo: $doesOneEqualTwo');
+  // const doesOneEqualTwo = 1 == 2;
   print(2 == 2.0);
 
   const doesOneNotEqualTwo = (1 != 2);
@@ -268,22 +268,6 @@ void main() {
     }
     print(i);
   }
-
-  /// For-in loops
-
-  const myString = 'I ❤ Dart';
-  for (var codePoint in myString.runes) {
-    print(String.fromCharCode(codePoint));
-  }
-
-  /// For-each loops
-
-  const myNumbers = [1, 2, 3];
-  myNumbers.forEach((number) => print(number));
-
-  myNumbers.forEach((number) {
-    print(number);
-  });
 }
 
 enum Weather {

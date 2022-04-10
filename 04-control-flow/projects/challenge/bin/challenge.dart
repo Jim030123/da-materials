@@ -1,8 +1,6 @@
 // Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'dart:math';
-
 void main() {
   /// Comparison operators: Exercise 1
   ///
