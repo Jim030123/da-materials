@@ -19,7 +19,7 @@ void main() {
   matchingMultipleCharacters();
   matchingSetsOfCharacters();
   escapingSpecialCharacters();
-  matchingBeginningEndLine();
+  matchingBeginningEnd();
   validatePassword();
 
   /// Extracting Text
@@ -41,13 +41,21 @@ void trimming() {
 }
 
 void padding() {
-  // final time = Duration(hours: 1, minutes: 32, seconds: 57);
-  // final hours = time.inHours;
-  // final minutes = time.inMinutes % 60;
-  // final seconds = time.inSeconds % 60;
-  // final timeString = '$hours:$minutes:$seconds';
-  // print(timeString);
+  withoutPadding();
+  withPadding();
+}
 
+void withoutPadding() {
+  // final time = Duration(hours: 1, minutes: 32, seconds: 57);
+  final time = Duration(hours: 1, minutes: 2, seconds: 3);
+  final hours = time.inHours;
+  final minutes = time.inMinutes % 60;
+  final seconds = time.inSeconds % 60;
+  final timeString = '$hours:$minutes:$seconds';
+  print(timeString);
+}
+
+void withPadding() {
   final time = Duration(hours: 1, minutes: 2, seconds: 3);
   final hours = time.inHours;
   final minutes = '${time.inMinutes % 60}'.padLeft(2, '0');
@@ -110,10 +118,10 @@ void matchingLiteralCharacters() {
   print('Matching Literal Characters:');
 
   final regex = RegExp('cat');
-  print(regex.hasMatch('cat'));
+  print(regex.hasMatch('concatenation'));
   print(regex.hasMatch('dog'));
   print(regex.hasMatch('cats'));
-  print('cat'.contains(regex));
+  print('concatenation'.contains(regex));
   print('dog'.contains(regex));
   print('cats'.contains(regex));
 }
@@ -188,8 +196,8 @@ void escapingSpecialCharacters() {
   print(escaped.hasMatch('cat'));
 }
 
-void matchingBeginningEndLine() {
-  print('Matching Beginning and End of Line:');
+void matchingBeginningEnd() {
+  print('Matching Beginning and End:');
 
   final numbers = RegExp(r'[0-9]');
   print(numbers.hasMatch('5552021'));
@@ -233,7 +241,7 @@ void extractingText() {
 <html>
 <body>
 <h1>Dart Tutorial</h1>
-<p>Dart is the best language.</p>
+<p>Dart is my favorite language.</p>
 </body>
 </html> 
 ''';

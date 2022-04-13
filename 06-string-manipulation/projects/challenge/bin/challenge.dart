@@ -12,7 +12,7 @@ void main() {
 
 /// Basic String Manipulation: Exercise 1
 ///
-/// Take a multiline string such as the text below and split it into a
+/// Take a multiline string, such as the text below, and split it into a
 /// list of single lines. Hint: Split at the newline character.
 ///
 /// ```
@@ -118,18 +118,21 @@ void challenge1() {
 /// Challenge 2: Karaoke Words
 ///
 /// An LRC file contains the timestamps for the lyrics of a song. How would
-/// you extract the time and lyrics for the following line of text using the
-/// `substring` method:
+/// you extract the time and lyrics for the following line of text:
 ///
 /// ```
-/// [00:12.00]Row, row, row your boat
+/// [00:12.34]Row, row, row your boat
 /// ```
 ///
-/// This means that the lyrics "Row, row, row your boat" begin at 0 minutes
-/// and 12.0 seconds.
+/// Extract the relevant parts of the string, and print them out in the
+/// following format:
 ///
-/// Use the `substring` method. You can use `int.parse` to convert a string
-/// to an integer.
+/// ```text
+/// minutes: 00
+/// seconds: 12
+/// hundredths: 34
+/// lyrics: Row, row, row your boat
+/// ```
 void challenge2() {
   print('Challenge 2');
 
@@ -138,23 +141,22 @@ void challenge2() {
 }
 
 void usingSubstring() {
-  const line = '[00:12.00]Row, row, row your boat';
-  final minutesString = line.substring(1, 3);
-  final minutesInt = int.parse(minutesString);
-  final secondsString = line.substring(4, 6);
-  final secondsInt = int.parse(secondsString);
-  final hundredthsString = line.substring(7, 9);
-  final hundredthsInt = int.parse(hundredthsString);
+  const line = '[00:12.34]Row, row, row your boat';
+  final minutes = line.substring(1, 3);
+  final seconds = line.substring(4, 6);
+  final hundredths = line.substring(7, 9);
   final lyrics = line.substring(10);
 
-  print('$minutesInt minutes and $secondsInt.$hundredthsInt seconds');
-  print(lyrics);
+  print('minutes: $minutes');
+  print('seconds: $seconds');
+  print('hundredths: $hundredths');
+  print('lyrics: $lyrics');
 }
 
 // You may also use regex groups. However, you haven't learned about
 // nullable values yet and this solution requires some knowledge of that.
 void usingRegexGroups() {
-  const line = '[00:12.00]Row, row, row your boat';
+  const line = '[00:12.34]Row, row, row your boat';
 
   // ^     start
   // \[    literal [
@@ -171,14 +173,13 @@ void usingRegexGroups() {
   // Read the chapter on Nullability for more about this.
   final match = regex.firstMatch(line)!;
 
-  final minutesString = match.group(1)!;
-  final minutesInt = int.parse(minutesString);
-  final secondsString = match.group(2)!;
-  final secondsInt = int.parse(secondsString);
-  final hundredthsString = match.group(3)!;
-  final hundredthsInt = int.parse(hundredthsString);
+  final minutes = match.group(1);
+  final seconds = match.group(2);
+  final hundredths = match.group(3);
   final lyrics = match.group(4);
 
-  print('$minutesInt minutes and $secondsInt.$hundredthsInt seconds');
-  print(lyrics);
+  print('minutes: $minutes');
+  print('seconds: $seconds');
+  print('hundredths: $hundredths');
+  print('lyrics: $lyrics');
 }
