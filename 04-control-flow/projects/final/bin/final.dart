@@ -1,19 +1,17 @@
 // Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'dart:math';
-
 const global = 'Hello, world';
 
 void main() {
-  /// Comparison operators
+  /// Comparison Operators
 
   // const bool yes = true;
   // const bool no = false;
   const yes = true;
   const no = false;
 
-  /// Boolean operators
+  /// Boolean Operators
 
   const doesOneEqualTwo = (1 == 2);
   print('doesOneEqualTwo: $doesOneEqualTwo');
@@ -36,7 +34,7 @@ void main() {
   print(2 >= 1);
   print(2 >= 2);
 
-  /// Boolean logic
+  /// Boolean Logic
 
   const isSunny = true;
   const isFinished = true;
@@ -65,13 +63,13 @@ void main() {
   print('orFirst: $orFirst');
   print('andFirst: $andFirst');
 
-  /// String equality
+  /// String Equality
 
   const guess = 'dog';
   const guessEqualsCat = guess == 'cat';
   print('guessEqualsCat: $guessEqualsCat');
 
-  /// The if statement
+  /// The If Statement
 
   if (2 > 1) {
     print('Yes, 2 is greater than 1.');
@@ -97,7 +95,7 @@ void main() {
   }
   print(command);
 
-  /// Variable scope
+  /// Variable Scope
 
   const local = 'Hello, main';
 
@@ -113,7 +111,7 @@ void main() {
   print(local);
   // print(insideIf); // Not allowed!
 
-  /// The ternary conditional operator
+  /// The Ternary Conditional Operator
 
   const score = 83;
   String message;
@@ -127,7 +125,7 @@ void main() {
   message = (score >= 60) ? 'You passed' : 'You failed';
   print('message: $message');
 
-  /// Switch statements
+  /// Switch Statements
 
   const number = 3;
   if (number == 0) {
@@ -180,7 +178,7 @@ void main() {
       print("I'm not familiar with that weather.");
   }
 
-  /// Enumerated types
+  /// Enumerated Types
 
   // Find the enum defined below, outside of the main() function.
   const weatherToday = Weather.cloudy;
@@ -201,7 +199,7 @@ void main() {
   final index = weatherToday.index;
   print(index);
 
-  /// While loops
+  /// While Loops
 
   // Infinite loop
   // while (true) { }
@@ -213,7 +211,7 @@ void main() {
     print('sum: $sum');
   }
 
-  /// Do-while loops
+  /// Do-While Loops
 
   sum = 1;
   print('sum: $sum');
@@ -222,7 +220,7 @@ void main() {
     print('sum: $sum');
   } while (sum < 10);
 
-  /// Comparing while and do-while loops
+  /// Comparing While and Do-While Loops
 
   sum = (1 + 3 - 2 * 4 + 8);
   while (sum < 10) {
@@ -236,7 +234,7 @@ void main() {
   } while (sum < 10);
   print('do-while loop sum: $sum');
 
-  /// Breaking out of a loop
+  /// Breaking Out of a Loop
 
   sum = 1;
   print('sum: $sum');
@@ -248,15 +246,7 @@ void main() {
     }
   }
 
-  /// A random interlude
-
-  final random = Random();
-  while (random.nextInt(6) + 1 != 6) {
-    print('Not a six!');
-  }
-  print('Finally, you got a six!');
-
-  /// For loops
+  /// For Loops
 
   for (var i = 0; i < 5; i++) {
     print(i);
