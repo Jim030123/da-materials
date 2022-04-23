@@ -38,11 +38,11 @@ void basicListOperations() {
   desserts.add('brownies');
   print(desserts);
 
-  // Inserting Elements in a List
+  // Inserting Elements
   desserts.insert(1, 'ice cream');
   print(desserts);
 
-  // Removing Elements From a List
+  // Removing Elements
   desserts.remove('cake');
   print(desserts);
   desserts.removeAt(0);

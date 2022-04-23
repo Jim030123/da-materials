@@ -132,8 +132,8 @@ void challenge2() {
 
 /// Challenge 3: Sorting It All Out
 ///
-/// Write your own algorithm to sort a list of integers without using
-/// the `sort` method. If you need some help, do a search for "bubble sort",
+/// Write your own algorithm to sort a list of integers without using the
+/// `sort` method. If you need some help, do a web search for "bubble sort",
 /// and then implement that algorithm in Dart.
 void challenge3() {
   final myList = [9, 4, 2, 7, 3, 4, 1];
