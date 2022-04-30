@@ -32,7 +32,7 @@ void setOperationsExercise() {
 
 /// Intersections and Unions Exercise
 ///
-/// Find the intersection and union of the following sets:
+/// Find the intersection and union of the following three sets:
 ///
 /// ```dart
 /// final nullSafe = {'Swift', 'Dart', 'Kotlin'};
@@ -76,7 +76,7 @@ void challenge1() {
 
 /// Challenge 2: Symmetric Difference
 ///
-/// Earlier in the chapter you found the intersection and the union of the
+/// Earlier in the chapter, you found the intersection and the union of the
 /// following sets:
 ///
 /// ```dart
