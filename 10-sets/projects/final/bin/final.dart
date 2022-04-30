@@ -33,6 +33,21 @@ void operationsOnSets() {
 
   drinks.addAll(['juice', 'coffee', 'milk']);
   print(drinks);
+
+  for (final drink in drinks) {
+    print("I'm drinking $drink.");
+  }
+
+  final beverages = drinks;
+  print(drinks);
+  beverages.remove('milk');
+  print(drinks);
+
+  final liquids = drinks.toSet();
+  print(drinks);
+  liquids.remove('coffee');
+  print(drinks);
+  print(liquids);
 }
 
 void intersectionsAndUnions() {

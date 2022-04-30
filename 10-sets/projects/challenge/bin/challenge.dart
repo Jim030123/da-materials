@@ -11,9 +11,9 @@ void main() {
 
 /// Set Operations Exercise
 ///
-/// 1. Create an empty set of type `String`. Name it `animals`;
+/// 1. Create an empty set of type `String`, and name it `animals`.
 /// 2. Add three animals to it.
-/// 3. Check if the set contains `'sheep'`;
+/// 3. Check if the set contains `'sheep'`.
 /// 4. Remove one of the animals.
 void setOperationsExercise() {
   final animals = <String>{};
@@ -84,8 +84,8 @@ void challenge1() {
 /// final setB = {1, 6, 5, 4};
 /// ```
 ///
-/// How would you find the set of values that are only in one set or the
-/// other, that is, everything but the duplicates `1` and `4`:
+/// How would you find the set of all values that are unique to each set,
+/// that is, everything but the duplicates `1` and `4`:
 ///
 /// ```text
 /// {8, 2, 3, 6, 5}
