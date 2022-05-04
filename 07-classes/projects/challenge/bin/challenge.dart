@@ -4,6 +4,8 @@
 void main() {
   dartClassesExercise();
   constructorsExercise();
+  challenge1();
+  challenge2();
 }
 
 /// Dart Classes Exercise
