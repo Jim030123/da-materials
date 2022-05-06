@@ -135,7 +135,7 @@ void matchingAnySingleCharacter() {
   print(matchSingle.hasMatch('cut'));
   print(matchSingle.hasMatch('ct'));
 
-  final optionalSingle = RegExp('c?t');
+  final optionalSingle = RegExp('c.?t');
   print(optionalSingle.hasMatch('cat'));
   print(optionalSingle.hasMatch('cot'));
   print(optionalSingle.hasMatch('cut'));

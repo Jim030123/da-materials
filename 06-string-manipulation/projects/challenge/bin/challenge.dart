@@ -133,6 +133,8 @@ void challenge1() {
 /// hundredths: 34
 /// lyrics: Row, row, row your boat
 /// ```
+///
+/// Solve the problem twice, once with `substring` and once with regex groups.
 void challenge2() {
   print('Challenge 2');
 
@@ -153,8 +155,6 @@ void usingSubstring() {
   print('lyrics: $lyrics');
 }
 
-// You may also use regex groups. However, you haven't learned about
-// nullable values yet and this solution requires some knowledge of that.
 void usingRegexGroups() {
   const line = '[00:12.34]Row, row, row your boat';
 
@@ -168,15 +168,12 @@ void usingRegexGroups() {
   // $     end
   final regex = RegExp(r'^\[(\d+):(\d+)\.(\d+)\](.+)$');
 
-  // The ! at the end means that the match cannot be null. Using ! can
-  // crash your app if it is null and there are safer methods than this.
-  // Read the chapter on Nullability for more about this.
-  final match = regex.firstMatch(line)!;
+  final match = regex.firstMatch(line);
 
-  final minutes = match.group(1);
-  final seconds = match.group(2);
-  final hundredths = match.group(3);
-  final lyrics = match.group(4);
+  final minutes = match?.group(1);
+  final seconds = match?.group(2);
+  final hundredths = match?.group(3);
+  final lyrics = match?.group(4);
 
   print('minutes: $minutes');
   print('seconds: $seconds');
