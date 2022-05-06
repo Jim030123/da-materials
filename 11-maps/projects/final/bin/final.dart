@@ -1,17 +1,20 @@
 // Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
+import 'dart:convert';
+
 void main() {
   creatingMaps();
   initializingMapWithValues();
   uniqueKeys();
   operationsOnMap();
+  mapsClassesJson();
 }
 
 void creatingMaps() {
   // final Map<String, int> emptyMap = {};
   final emptyMap = <String, int>{};
-  final emptySomething = {};
+  // final emptySomething = {};
   final mySet = <String>{};
 }
 
@@ -76,4 +79,95 @@ void operationsOnMap() {
 
   inventory.remove('cookies');
   print(inventory);
+
+  print(inventory.isEmpty);
+  print(inventory.isNotEmpty);
+  print(inventory.length);
+
+  print(inventory.keys);
+  print(inventory.values);
+
+  print(inventory.containsKey('pies'));
+  print(inventory.containsValue(42));
+
+  for (var item in inventory.keys) {
+    print(inventory[item]);
+  }
+
+  for (final entry in inventory.entries) {
+    print('${entry.key} -> ${entry.value}');
+  }
+}
+
+void mapsClassesJson() {
+  final userObject = User(
+    id: 1234,
+    name: 'John',
+    emails: [
+      'john@example.com',
+      'jhagemann@example.com',
+    ],
+  );
+
+  // final userMap = {
+  //   'id': 1234,
+  //   'name': 'John',
+  //   'emails': [
+  //     'john@example.com',
+  //     'jhagemann@example.com',
+  //   ],
+  // };
+
+  final userMap = userObject.toJson();
+
+  final userString = json.encode(userMap);
+  print(userString);
+
+  final jsonString =
+      '{"id":4321,"name":"Marcia","emails":["marcia@example.com"]}';
+
+  // final jsonMap = jsonDecode(jsonString);
+  dynamic jsonMap = jsonDecode(jsonString);
+
+  if (jsonMap is Map<String, dynamic>) {
+    print("You've got a map!");
+  } else {
+    print('Your JSON must have been in the wrong format.');
+  }
+
+  final userMarcia = User.fromJson(jsonMap);
+}
+
+class User {
+  const User({
+    required this.id,
+    required this.name,
+    required this.emails,
+  });
+
+  factory User.fromJson(Map<String, dynamic> jsonMap) {
+    dynamic id = jsonMap['id'];
+    dynamic name = jsonMap['name'];
+    dynamic emails = jsonMap['emails'];
+    if (id is! int) id = 0;
+    if (name is! String) name = '';
+    if (emails is! List<String>) emails = <String>[];
+    return User(
+      id: id,
+      name: name,
+      emails: emails,
+    );
+  }
+
+  final int id;
+  final String name;
+  final List<String> emails;
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'id': id,
+      'name': name,
+      'emails': emails,
+    };
+  }
 }
