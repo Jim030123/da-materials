@@ -11,13 +11,6 @@ void main() {
     print(item);
   }
 
-  final mySet = {'red', 'blue', 'green'};
-  print(mySet);
-
-  for (final item in mySet) {
-    print(item);
-  }
-
   final reversedIterable = myList.reversed;
   print(reversedIterable);
 
