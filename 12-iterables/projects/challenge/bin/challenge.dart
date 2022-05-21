@@ -65,8 +65,8 @@ void challenge1() {
 /// Challenge 2: Fibonacci to Infinity
 ///
 /// Create a custom iterable collection that contains all of the
-/// Fibonacci numbers. Add an optional constructor that will stop
-/// after the nth number.
+/// Fibonacci numbers. Add an optional constructor parameter that
+/// will stop iteration after the nth number.
 void challenge2() {
   final fibonacciSeries = Fibonacci(10);
   for (int number in fibonacciSeries) {

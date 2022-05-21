@@ -4,9 +4,6 @@ class HundredSquares extends Iterable {
 }
 
 class SquaredIterator implements Iterator<int> {
-  @override
-  get current => _index * _index;
-
   int _index = 0;
 
   @override
@@ -14,4 +11,7 @@ class SquaredIterator implements Iterator<int> {
     _index++;
     return _index <= 100;
   }
+
+  @override
+  get current => _index * _index;
 }

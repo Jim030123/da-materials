@@ -4,6 +4,12 @@
 import 'squares.dart';
 
 void main() {
+  whatsAnIterable();
+  operationsOnIterables();
+  creatingIterablesFromScratch();
+}
+
+void whatsAnIterable() {
   final myList = ['bread', 'cheese', 'milk'];
   print(myList);
 
@@ -16,7 +22,9 @@ void main() {
 
   final reversedList = reversedIterable.toList();
   print(reversedList);
+}
 
+void operationsOnIterables() {
   // final myIterable = Iterable();
   Iterable<String> myIterable = ['red', 'blue', 'green'];
 
@@ -31,7 +39,9 @@ void main() {
 
   final numberElements = myIterable.length;
   print(numberElements);
+}
 
+void creatingIterablesFromScratch() {
   final squares = HundredSquares();
   for (int square in squares) {
     print(square);
