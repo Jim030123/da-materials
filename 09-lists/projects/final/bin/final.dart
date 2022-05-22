@@ -73,6 +73,7 @@ void mutableAndImmutableLists() {
   desserts.remove('cookies');
   desserts.remove('cupcakes');
   desserts.add('ice cream');
+  print(desserts);
 }
 
 void creatingDeeplyImmutableLists() {
@@ -81,9 +82,12 @@ void creatingDeeplyImmutableLists() {
   // desserts.add('brownie');
   // desserts.remove('pie');
   // desserts[0] = 'fudge';
+  print(desserts);
 
-  // final modifiableList = [DateTime.now(), DateTime.now()];
-  // final unmodifiableList = List.unmodifiable(modifiableList);
+  final modifiableList = [DateTime.now(), DateTime.now()];
+  print(modifiableList);
+  final unmodifiableList = List.unmodifiable(modifiableList);
+  print(unmodifiableList);
 }
 
 class Desserts {
@@ -154,13 +158,18 @@ void codeAsUi() {
 
 void handlingNullableLists() {
   // Nullable Lists vs. Nullable Elements
-  List<int?> nullableElements = [2, 4, null, 3, 7];
-
   List<int>? nullableList = [2, 4, 3, 7];
+  print(nullableList);
   nullableList = null;
+  print(nullableList);
+
+  List<int?> nullableElements = [2, 4, null, 3, 7];
+  print(nullableElements);
 
   List<int?>? nullableListAndElements = [2, 4, null, 3, 7];
+  print(nullableListAndElements);
   nullableListAndElements = null;
+  print(nullableListAndElements);
 
   // Using the Basic Null Aware Operators
   List<String?>? drinks = ['milk', 'water', null, 'soda'];
