@@ -119,6 +119,7 @@ void mapsClassesJson() {
   // };
 
   final userMap = userObject.toJson();
+  print(userMap);
 
   final userString = json.encode(userMap);
   print(userString);
@@ -136,6 +137,9 @@ void mapsClassesJson() {
   }
 
   final userMarcia = User.fromJson(jsonMap);
+  print(userMarcia.id);
+  print(userMarcia.name);
+  print(userMarcia.emails);
 }
 
 class User {
@@ -151,7 +155,11 @@ class User {
     dynamic emails = jsonMap['emails'];
     if (id is! int) id = 0;
     if (name is! String) name = '';
-    if (emails is! List<String>) emails = <String>[];
+    if (emails is List<dynamic>) {
+      emails = List<String>.from(emails);
+    } else if (emails is! List<String>) {
+      emails = <String>[];
+    }
     return User(
       id: id,
       name: name,
