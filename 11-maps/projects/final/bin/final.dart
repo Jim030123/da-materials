@@ -137,9 +137,7 @@ void mapsClassesJson() {
   }
 
   final userMarcia = User.fromJson(jsonMap);
-  print(userMarcia.id);
-  print(userMarcia.name);
-  print(userMarcia.emails);
+  print(userMarcia);
 }
 
 class User {
@@ -151,15 +149,19 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> jsonMap) {
     dynamic id = jsonMap['id'];
-    dynamic name = jsonMap['name'];
-    dynamic emails = jsonMap['emails'];
     if (id is! int) id = 0;
+
+    dynamic name = jsonMap['name'];
     if (name is! String) name = '';
-    if (emails is List<dynamic>) {
-      emails = List<String>.from(emails);
-    } else if (emails is! List<String>) {
-      emails = <String>[];
+
+    dynamic maybeEmails = jsonMap['emails'];
+    final emails = <String>[];
+    if (maybeEmails is List) {
+      for (dynamic email in maybeEmails) {
+        if (email is String) emails.add(email);
+      }
     }
+
     return User(
       id: id,
       name: name,
@@ -177,5 +179,10 @@ class User {
       'name': name,
       'emails': emails,
     };
+  }
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name, emails: $emails)';
   }
 }
