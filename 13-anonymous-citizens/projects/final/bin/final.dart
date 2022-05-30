@@ -16,6 +16,9 @@ void main() {
   voidCallback();
   valueSetterCallback();
   valueGetterCallback();
+  tearOffs();
+  typedefs();
+  closures();
 }
 
 void assigningFunctionsToVariables() {
@@ -216,4 +219,73 @@ class StateManager {
   void handleButtonClick() {
     _counter++;
   }
+}
+
+void tearOffs() {
+  final manager = StateManager();
+
+  final myButton = Button(
+    title: 'Click me!',
+    onPressed: manager.handleButtonClick,
+  );
+  myButton.onPressed();
+
+  const cities = ['Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Antalya'];
+  cities.forEach((city) => print(city));
+
+  cities.forEach(print);
+}
+
+typedef MapBuilder = Map<String, int> Function(List<int>);
+typedef ZipCode = int;
+
+class Gizmo {
+  Gizmo({
+    required this.builder,
+  });
+
+  final MapBuilder builder;
+}
+
+void typedefs() {
+  final gizmo = Gizmo(builder: (list) => {'hi': list.first});
+
+  ZipCode code = 87101;
+  int number = 42;
+
+  print(code is ZipCode);
+  print(code is int);
+  print(number is ZipCode);
+  print(number is int);
+}
+
+void closures() {
+  var counter = 0;
+  final incrementCounter = () {
+    counter += 1;
+  };
+
+  incrementCounter();
+  incrementCounter();
+  incrementCounter();
+  incrementCounter();
+  incrementCounter();
+  print(counter);
+
+  final counter1 = countingFunction();
+  final counter2 = countingFunction();
+  print(counter1());
+  print(counter2());
+  print(counter1());
+  print(counter1());
+  print(counter2());
+}
+
+Function countingFunction() {
+  var counter = 0;
+  final incrementCounter = () {
+    counter += 1;
+    return counter;
+  };
+  return incrementCounter;
 }
