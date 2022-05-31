@@ -72,8 +72,8 @@ class Surface {
 /// };
 /// ```
 ///
-/// User higher order functions to find the total number of animals whose
-/// name begins with "s". That is, how many sheep, snakes and seals are there?
+/// User higher-order functions to find the total number of animals whose
+/// names begin with "s". That is, how many sheep, snakes and seals are there?
 void challenge1() {
   final animals = {
     'sheep': 99,

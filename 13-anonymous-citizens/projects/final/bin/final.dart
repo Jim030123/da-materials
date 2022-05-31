@@ -111,9 +111,16 @@ void folding() {
   const evens = [2, 4, 6, 8, 10, 12];
   final total = evens.fold<int>(
     0,
-    (int sum, element) => sum + element,
+    (sum, element) => sum + element,
   );
   print(total);
+
+  final emptyList = <int>[];
+  final result = emptyList.fold<int>(
+    0,
+    (sum, element) => sum + element,
+  );
+  print(result);
 }
 
 void sorting() {
