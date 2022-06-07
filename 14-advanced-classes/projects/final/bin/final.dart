@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Razeware LLC
+// Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
 void main() {
@@ -36,28 +36,31 @@ enum Grade { A, B, C, D, F }
 
 class Person {
   Person(this.givenName, this.surname);
+
   String givenName;
   String surname;
   String get fullName => '$givenName $surname';
+
   @override
   String toString() => fullName;
 }
 
 class Student extends Person {
-  Student(String givenName, String surname) : super(givenName, surname);
+  Student(super.givenName, super.surname);
   var grades = <Grade>[];
   @override
   String get fullName => '$surname, $givenName';
 }
 
 class SchoolBandMember extends Student {
-  SchoolBandMember(String givenName, String surname)
-      : super(givenName, surname);
+  SchoolBandMember(super.givenName, super.surname);
+
   static const minimumPracticeTime = 2;
 }
 
 class StudentAthlete extends Student {
-  StudentAthlete(String givenName, String surname) : super(givenName, surname);
+  StudentAthlete(super.givenName, super.surname);
+
   bool get isEligible => grades.every((grade) => grade != Grade.F);
 }
 
