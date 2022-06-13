@@ -13,5 +13,5 @@ class SquaredIterator implements Iterator<int> {
   }
 
   @override
-  get current => _index * _index;
+  int get current => _index * _index;
 }
