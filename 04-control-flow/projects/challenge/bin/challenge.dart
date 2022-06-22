@@ -55,52 +55,6 @@ void main() {
   const answer = (isTeenager) ? 'Teenager' : 'Not a teenager';
   print(answer);
 
-  /// Switch statements: Exercise 1
-  ///
-  /// Make an `enum` called `AudioState` and give it values to represent
-  /// `playing`, `paused` and `stopped` states.
-
-  // Find the AudioState enum below, outside of the main() function.
-
-  /// Switch statements: Exercise 2
-  ///
-  /// Create a constant called `audioState` and give it an `AudioState` value.
-  /// Write a `switch` statement that prints a message based on the value.
-  const audioState = AudioState.stopped;
-  switch (audioState) {
-    case AudioState.playing:
-      print('Audio playing');
-      break;
-    case AudioState.paused:
-      print('Audio paused');
-      break;
-    case AudioState.stopped:
-      print('Audio stopped');
-      break;
-  }
-
-  /// Loops: Exercise 1
-  ///
-  /// Create a variable named `counter` and set it equal to `0`. Create a
-  /// `while` loop with the condition `counter < 10`. The loop body should
-  /// print out "counter is X" (where X is replaced with the value of
-  /// `counter`) and then increment `counter` by 1.
-
-  var counter = 0;
-  while (counter < 10) {
-    print('counter is $counter');
-    counter++;
-  }
-
-  /// Loops: Exercise 2
-  ///
-  /// Write a `for` loop starting at `1` and ending with `10` inclusive. Print
-  /// the square of each number.
-
-  for (var i = 1; i <= 10; i++) {
-    print(i * i);
-  }
-
   /// Challenge 1: Find the error
   ///
   /// What's wrong with the following code?
@@ -145,87 +99,28 @@ void main() {
   print((true && 1 != 2) || (4 > 3 && 100 < 1)); // true
   print(((10 / 2) > 3) && ((10 % 2) == 0)); // true
 
-  /// Challenge 3: Next power of two
+  /// Challenge 3: Audio Enumerations
   ///
-  /// Given a number, determine the next power of two above or equal to
-  /// that number.
+  /// 1. Make an `enum` called `AudioState` and give it values to represent
+  ///    `playing`, `paused` and `stopped` states.
+  /// 2. Create a constant called `audioState` and give it an `AudioState` value.
+  /// 3. Write a `switch` statement that prints a message based on the value.
 
-  const number = 946;
-  var trial = 1;
-  var times = 0;
-  while (trial < number) {
-    trial = trial * 2;
-    times += 1;
-  }
-  print('Next power of 2 >= $number is $trial '
-      'which is 2 to the power of $times.');
-  // Next power of 2 >= 946 is 1024 which is 2 to the power of 10.
-
-  /// Challenge 4: Fibonacci
-  ///
-  /// Calculate the nth Fibonacci number. Remember that Fibonacci numbers
-  /// start its sequence with 1 and 1, and then subsequent numbers in the
-  /// sequence are equal to the previous two values added together. You can
-  /// get a refresher here: https://en.wikipedia.org/wiki/Fibonacci_number
-
-  const n = 10;
-  var current = 1;
-  var previous = 1;
-  var done = 2;
-  while (done < n) {
-    final next = current + previous;
-    previous = current;
-    current = next;
-    done += 1;
-  }
-  print('Fibonacci number $n is $current.');
-  // Fibonacci number 10 is 55.
-
-  /// Challenge 5: How many times?
-  ///
-  /// In the following `for` loop, what will be the value of sum, and how many
-  /// iterations will happen?
-  ///
-  /// ```
-  /// var sum = 0;
-  /// for (var i = 0; i <= 5; i++) {
-  ///   sum += i;
-  /// }
-  /// ```
-
-  var sum = 0;
-  var count = 0;
-  for (var i = 0; i <= 5; i++) {
-    sum += i;
-    count++;
-  }
-  print('The value of the sum is $sum after $count iterations.');
-  // The value of the sum is 15 after 6 iterations.
-
-  /// Challenge 6: The final countdown
-  ///
-  /// Print a countdown from 10 to 0.
-
-  for (var i = 10; i >= 0; i--) {
-    print(i);
-  }
-
-  /// Challenge 7: Print a sequence
-  ///
-  /// Print the sequence 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0.
-
-  print('0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0');
-  // Just kidding. :]
-  // Here's one of several other ways to do it:
-  for (var i = 0; i <= 10; i++) {
-    print(i / 10);
+  // Find the AudioState enum below, outside of the main() function.
+  const audioState = AudioState.stopped;
+  switch (audioState) {
+    case AudioState.playing:
+      print('Audio playing');
+      break;
+    case AudioState.paused:
+      print('Audio paused');
+      break;
+    case AudioState.stopped:
+      print('Audio stopped');
+      break;
   }
 }
 
-/// Switch statements: Exercise 1
-///
-/// Make an `enum` called `AudioState` and give it values to represent
-/// `playing`, `paused` and `stopped` states.
 enum AudioState {
   playing,
   paused,
