@@ -1,148 +1,57 @@
 // Copyright (c) 2022 Razeware LLC
 // For full license & permission details, see LICENSE.
 
-import 'user.dart';
-
 void main() {
-  // Dart Classes
-  definingAClass();
-  creatingAnObjectFromAClass();
-  addingAJsonSerializationMethod();
-
-  // Constructors
-  defaultConstructor();
-  longFormConstructor();
-  shortFormConstructor();
-  namedConstructors();
-  forwardingConstructors();
-  optionalAndNamedParameters();
-  initializerLists();
-  makingClassesImmutable();
-
-  // Dart Objects
-  dartObjects();
+  assigningValuesAndPrinting();
+  addingMethods();
+  cascadeNotation();
+  objectsAsReferences();
   getters();
+  calculatedProperty();
   setters();
-
-  // Static Members
-  staticMembers();
-  staticVariables();
-  staticMethods();
 }
 
-void definingAClass() {
-  // class User {
-  //   int id = 0;
-  //   String name = '';
-  // }
+class User {
+  int id = 0;
+  String name = '';
+
+  String toJson() {
+    return '{"id":$id,"name":"$name"}';
+  }
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name)';
+  }
 }
 
-void creatingAnObjectFromAClass() {
-  // class User {
-  //   int id = 0;
-  //   String name = '';
-  // }
+void assigningValuesAndPrinting() {
   final user = User();
-  // user.name = 'Ray';
-  // user.id = 42;
+  user.name = 'Ray';
+  user.id = 42;
 
   print(user);
 }
 
-void addingAJsonSerializationMethod() {
+void addingMethods() {
   final user = User();
+  user.name = 'Ray';
+  user.id = 42;
+
   print(user.toJson());
 }
 
 void cascadeNotation() {
-  // final user = User()
-  // ..name = 'Ray'
-  // ..id = 42;
+  final user = User();
+  user.name = 'Ray';
+  user.id = 42;
 }
 
-void defaultConstructor() {
-  // class Address {
-  //   var value = '';
-  // }
+class MyClass {
+  var myProperty = 1;
 }
 
-void longFormConstructor() {
-  // class User {
-  //   User(int id, String name) {
-  //     this.id = id;
-  //     this.name = name;
-  //   }
-
-  //   int id = 0;
-  //   String name = '';
-
-  //   // ...
-  // }
-
-  // final user = User(42, 'Ray');
-  // print(user);
-}
-
-void shortFormConstructor() {
-  // class User {
-  //   User(this.id, this.name);
-  //   int id = 0;
-  //   String name = '';
-  //   // ...
-  // }
-}
-
-void namedConstructors() {
-  // User.anonymous() {
-  //   id = 0;
-  //   name = 'anonymous';
-  // }
-  const anonymousUser = User.anonymous();
-  print(anonymousUser);
-}
-
-void forwardingConstructors() {
-  // User.anonymous() : this(0, 'anonymous');
-  final anonymousUser = User.anonymous();
-  print(anonymousUser);
-}
-
-void optionalAndNamedParameters() {
-  // MyClass([this.myProperty]);
-  // MyClass({this.myProperty});
-  // MyClass({required this.myProperty});
-
-  // final user = User(42, 'Ray');
-  // User({this.id = 0, this.name = 'anonymous'});
-  final user = User(id: 42, name: 'Ray');
-  print(user);
-}
-
-void initializerLists() {
-// User({int id = 0, String name = 'anonymous'})
-//     : _id = id,
-//       _name = name;
-
-//   User({int id = 0, String name = 'anonymous'})
-//     : _id = id,
-//       _name = name {
-//   print('User name is $_name');
-// }
-
-  final vicki = User(id: 24, name: 'Vicki');
-  // vicki._name = 'Nefarious Hacker';
-
-  print(vicki);
-}
-
-void makingClassesImmutable() {
-  const user = User(id: 42, name: 'Ray');
-  const anonymousUser = User.anonymous();
-  print(user);
-  print(anonymousUser);
-}
-
-void dartObjects() {
+void objectsAsReferences() {
   final myObject = MyClass();
   final anotherObject = myObject;
   print(myObject.myProperty);
@@ -150,67 +59,62 @@ void dartObjects() {
   print(myObject.myProperty);
 }
 
+class Password {
+  String _plainText = 'pass123';
+
+  String get plainText => _plainText;
+
+  set plainText(String text) {
+    if (text.length < 6) {
+      print('Passwords must have 6 or more characters!');
+      return;
+    }
+    _plainText = text;
+  }
+
+  String get obfuscated {
+    final length = _plainText.length;
+    return '*' * length;
+  }
+}
+
 void getters() {
-  const ray = User(id: 42, name: 'Ray');
-  print(ray.id);
-  print(ray.name);
+  final myPassword = Password();
+  final text = myPassword.plainText;
+  print(text);
+
+  // myPassword.plainText = '123456';
+}
+
+void calculatedProperty() {
+  final myPassword = Password();
+  final text = myPassword.obfuscated;
+  print(text);
 }
 
 void setters() {
-  // final email = Email();
-  // email.value = 'ray@example.com';
-  // final emailString = email.value;
+  final myPassword = Password();
+  myPassword.plainText = r'Pa$$vv0Rd';
+  final text = myPassword.plainText;
+  print(text);
 
-  final email = Email('ray@example.com');
+  final shortPassword = Password();
+  shortPassword.plainText = 'aaa';
+  final result = shortPassword.plainText;
+  print(result);
+
+  final email = Email();
+  email.value = 'ray@example.com';
   final emailString = email.value;
   print(emailString);
 }
 
-void staticMembers() {
-  final value = SomeClass.myProperty;
-  SomeClass.myMethod();
-}
-
-void staticVariables() {
-  final mySingleton = MySingleton();
-}
-
-void staticMethods() {
-  final map = {'id': 10, 'name': 'Sandra'};
-  final sandra = User.fromJson(map);
-  print(sandra);
-}
-
-class Address {
-  Address();
-  var value = '';
-}
-
-class MyClass {
-  var myProperty = 1;
-}
-
 // class Email {
-//   var _address = '';
-
-//   String get value => _address;
-//   set value(String address) => _address = address;
+//   String _value = '';
+//   String get value => _value;
+//   set value(String value) => _value = value;
 // }
 
 class Email {
-  Email(this.value);
-  final String value;
-}
-
-class SomeClass {
-  static int myProperty = 0;
-  static void myMethod() {
-    print('Hello, Dart!');
-  }
-}
-
-class MySingleton {
-  MySingleton._();
-  static final MySingleton _instance = MySingleton._();
-  factory MySingleton() => _instance;
+  String value = '';
 }
