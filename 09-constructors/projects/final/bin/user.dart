@@ -2,31 +2,27 @@
 // For full license & permission details, see LICENSE.
 
 class User {
-  const User({
-    this.id = _anonymousId,
-    this.name = _anonymousName,
-  });
+  const User({int id = 0, String name = 'anonymous'})
+      : _id = id,
+        _name = name;
 
   const User.anonymous() : this();
 
-  final String name;
-  final int id;
-
-  static const _anonymousId = 0;
-  static const _anonymousName = 'anonymous';
-
-  String toJson() {
-    return '{"id":$id,"name":"$name"}';
-  }
-
-  static User fromJson(Map<String, Object> json) {
+  factory User.fromJson(Map<String, Object> json) {
     final userId = json['id'] as int;
     final userName = json['name'] as String;
     return User(id: userId, name: userName);
   }
 
+  final String _name;
+  final int _id;
+
+  String toJson() {
+    return '{"id":$_id,"name":"$_name"}';
+  }
+
   @override
   String toString() {
-    return 'User(id: $id, name: $name)';
+    return 'User(id: $_id, name: $_name)';
   }
 }

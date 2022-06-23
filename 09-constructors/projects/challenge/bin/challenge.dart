@@ -2,33 +2,8 @@
 // For full license & permission details, see LICENSE.
 
 void main() {
-  dartClassesExercise();
   constructorsExercise();
   challenge1();
-  challenge2();
-}
-
-/// Dart Classes Exercise
-///
-/// 1. Create a class called `Password` and give it a string property
-///    called `value`.
-/// 2. Override the `toString` method of `Password` so that it returns `value`.
-/// 3. Add a method to `Password` called `isValid` that returns `true` only
-///    if the length of `value` is greater than 8.
-void dartClassesExercise() {
-  final password = Password();
-  password.value = 'Password123';
-  print(password);
-  print(password.isValid());
-}
-
-class Password {
-  String value = '';
-
-  bool isValid() => value.length > 8;
-
-  @override
-  String toString() => value;
 }
 
 /// Constructors Exercise
@@ -77,29 +52,4 @@ class Student {
 
   @override
   String toString() => '$firstName $lastName: $grade';
-}
-
-/// Challenge 2: Spheres
-///
-/// Create a `Sphere` class with a `const` constructor that takes a
-/// `radius` as a named parameter. Add getters for the volume and
-/// surface area but none for the radius. Don't use the `dart:math` package
-/// but store your own version of `pi` as a `static` constant. Use your class
-/// to find the volume and surface area of a sphere with a radius of 12.
-void challenge2() {
-  const sphere = Sphere(radius: 12);
-  final volume = sphere.volume;
-  final area = sphere.area;
-  print('volume: $volume, area: $area');
-}
-
-class Sphere {
-  const Sphere({required int radius}) : _radius = radius;
-
-  final int _radius;
-
-  double get volume => 4 / 3 * pi * _radius * _radius * _radius;
-  double get area => 4 * pi * _radius * _radius;
-
-  static const double pi = 3.14159265359;
 }
