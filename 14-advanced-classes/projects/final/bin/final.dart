@@ -9,9 +9,15 @@ void main() {
 
   final historyGrade = Grade.B;
   jane.grades.add(historyGrade);
+  print(jane.grades);
+
+  final child = SomeChild();
+  child.doSomeWork();
 
   final jessie = SchoolBandMember('Jessie', 'Jones');
   final marty = StudentAthlete('Marty', 'McFly');
+  print(jessie);
+  print(marty);
 
   final students = [jane, jessie, marty];
 
@@ -40,6 +46,20 @@ class Student extends Person {
   var grades = <Grade>[];
   @override
   String get fullName => '$surname, $givenName';
+}
+
+class SomeParent {
+  void doSomeWork() {
+    print('parent working');
+  }
+}
+
+class SomeChild extends SomeParent {
+  @override
+  void doSomeWork() {
+    print('child doing some other work');
+    super.doSomeWork();
+  }
 }
 
 class SchoolBandMember extends Student {
