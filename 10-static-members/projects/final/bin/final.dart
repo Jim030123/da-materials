@@ -41,20 +41,21 @@ void constants() {
   print(backgroundColor);
 }
 
-class MySingleton {
-  MySingleton._();
-  static final MySingleton instance = MySingleton._();
-}
-
 // class MySingleton {
 //   MySingleton._();
-//   static final MySingleton _instance = MySingleton._();
-//   factory MySingleton() => _instance;
+//   static final MySingleton instance = MySingleton._();
 // }
 
+class MySingleton {
+  MySingleton._();
+  static final MySingleton _instance = MySingleton._();
+  factory MySingleton() => _instance;
+}
+
 void singletons() {
-  final mySingleton = MySingleton.instance;
-  // final mySingleton = MySingleton();
+  // final mySingleton = MySingleton.instance;
+  final mySingleton = MySingleton();
+  print(mySingleton);
 }
 
 class Math {
