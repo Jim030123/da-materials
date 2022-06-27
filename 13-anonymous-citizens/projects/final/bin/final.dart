@@ -3,10 +3,10 @@
 
 void main() {
   assigningFunctionsToVariables();
-  functionsAsParameters();
-  functionsAsReturnValues();
-  forEachLoopsOnList();
-  forEachLoopsOnMap();
+  passingFunctionsToFunctions();
+  returningFunctionsFromFunctions();
+  iteratingOverAList();
+  iteratingOverAMap();
   mapping();
   filtering();
   reducing();
@@ -31,19 +31,19 @@ void assigningFunctionsToVariables() {
   };
 }
 
-void functionsAsParameters() {
+void passingFunctionsToFunctions() {
   void namedFunction(Function anonymousFunction) {
     // function body
   }
 }
 
-void functionsAsReturnValues() {
+void returningFunctionsFromFunctions() {
   Function namedFunction() {
     return () => print('hello');
   }
 }
 
-void forEachLoopsOnList() {
+void iteratingOverAList() {
   const numbers = [1, 2, 3];
 
   numbers.forEach((int number) {
@@ -64,7 +64,7 @@ void forEachLoopsOnList() {
   numbers.forEach(triple);
 }
 
-void forEachLoopsOnMap() {
+void iteratingOverAMap() {
   final flowerColor = {
     'roses': 'red',
     'violets': 'blue',
@@ -166,6 +166,7 @@ class Button {
   });
 
   final String title;
+  // final Function onPressed;
   final void Function() onPressed;
 }
 
