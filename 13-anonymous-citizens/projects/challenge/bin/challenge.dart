@@ -17,12 +17,13 @@ void main() {
 /// final scores = [89, 77, 46, 93, 82, 67, 32, 88];
 /// ```
 ///
-/// 1. Use `sort` to find the highest and lowest grades.
+/// 1. Use `sort` to order the grades from highest to lowest.
 /// 2. Use `where` to find all the B grades, that is, all the scores
 ///    between `80` and `90`.
 void higherOrderFunctionsExercise() {
   final scores = [89, 77, 46, 93, 82, 67, 32, 88];
-  scores.sort();
+  scores.sort((a, b) => b.compareTo(a));
+  print('Hightest to lowest: $scores');
   final highest = scores.first;
   final lowest = scores.last;
   print(highest);
